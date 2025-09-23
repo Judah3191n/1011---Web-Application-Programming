@@ -1,0 +1,77 @@
+﻿@charset "utf-8";
+
+/*
+   Assignment 1
+
+   Debug
+   Author: Judah Csanyi
+   Date: 05/09/2025 
+*/
+
+html {
+
+}
+
+
+h2, p {
+  margin: 10px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333333;
+}
+
+ul li {
+  float: left;
+}
+
+ul li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+ul li a:hover {
+  background-color: #111111;
+}
+body {
+   width: 90%;
+   margin: 0px auto;
+}
+
+h1 {
+   font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+   margin: 10px auto;
+}
+
+
+table {
+   border-collapse: collapse;
+   border: 1px solid black;
+   width: 70%;
+   font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+   margin-bottom: 20px;
+}
+
+th, td {
+   border: 1px solid black;
+   padding: 7px;
+   vertical-align: top;
+}
+
+th {
+   background-color: black;
+   color: white;
+   text-transform: uppercase;
+   font-size: 1.1em;
+}
+
+tr td:nth-of-type(3) {
+   text-align: right;
+}
