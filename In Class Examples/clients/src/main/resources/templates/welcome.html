@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Welcome</title>
 </head>
 <body>
-    <h1> this is a static about.html page</h1>
+    <h2 th:text="'Welcome, ' + ${username} + '!'">Welcome!</h2>
+    <p>you logged in sucessfully</p>
 </body>
 </html>
