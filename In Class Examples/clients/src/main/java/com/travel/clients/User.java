@@ -30,7 +30,7 @@ public class User {
     }
 
     static String generateCreditCard() {
-        String cardNumber = " ";
+        String cardNumber = "";
         for (int i = 0; i < 16; i++) {
             cardNumber += Integer.toString((int) (Math.random() * 10));
         }

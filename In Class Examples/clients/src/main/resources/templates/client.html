@@ -11,12 +11,6 @@
     <center>
     <h1 th:text="${msg}">testingPlaceholder message</h1>
 
-    <ul>
-        <li th:text="'Client Name: '+ ${clientsData.get(0)}">Client 0</li>
-        <li th:text="'Client Name: '+ ${clientsData.get(1)}">Client 1</li>
-        <li th:text="'Client Name: '+ ${clientsData.get(2)}">Client 2</li>
-        <li th:text="'Client Name: '+ ${clientsData.get(3)}">Client 3</li>
-    </ul>
     <table border="5">
         <thead>
             <tr>
@@ -27,11 +21,11 @@
             </tr>
         </thead>
         <tbody>
-            <tr th:each="user:${Users}">
-                <td th:text="${user.getName()}"></td>
-                <td th:text="${user.getEmail()}"></td>
-                <td th:text="${user.getCreditCard()}"></td>
-                <td th:text="${user.getPassword()}"></td>
+            <tr th:each="user : ${Users}">
+                <td th:text="${user.name}"></td>
+                <td th:text="${user.email}"></td>
+                <td th:text="${user.creditCard}"></td>
+                <td th:text="${user.password}"></td>
             </tr>
         </tbody>
     </table>
