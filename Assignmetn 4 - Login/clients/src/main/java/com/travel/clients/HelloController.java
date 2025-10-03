@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.fasterxml.jackson.databind.ser.impl.UnwrappingBeanSerializer;
 
+import jakarta.servlet.http.HttpSession;
+
 // browser cookie: store data on browser
 // session: store data on server
 
@@ -27,17 +29,9 @@ public class HelloController {
     // clients
     @GetMapping("/client")
     public String getHello(Model model) {
-
-        users.add(new User("Judah", "P@ssword1"));
-        users.add(new User("Jeremy", "ASecret"));
-        users.add(new User("Nadia", "Uncrackable"));
-        users.add(new User("David", "help"));
-        users.add(new User("Jalen", "yellow submarine"));
-
         model.addAttribute("msg", "List of the Clients");
         model.addAttribute("date", LocalDate.now());
         model.addAttribute("Users", users);
-
         return "client";
     }
 
@@ -49,7 +43,6 @@ public class HelloController {
 
     @PostMapping("/login")
     public String handleLogin(@RequestParam String username, @RequestParam String password, Model model) {
-        users.add(new User("David", "help"));
         model.addAttribute("username", username);
         model.addAttribute("counter", 0);
         for (User user : users) {
@@ -92,6 +85,12 @@ public class HelloController {
     public String testt(@ModelAttribute("username") String user, Model model) { // part2
         model.addAttribute("tt", user); // part3 , part4 to be in the test.html
         return "test";
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "login";
     }
 
 }

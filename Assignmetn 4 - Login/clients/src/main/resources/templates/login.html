@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
 </head>
-<!-- <style>
+<style>
 body {font-family: Arial, Helvetica, sans-serif;}
 
 /* Full-width input fields */
@@ -126,14 +126,14 @@ span.psw {
      width: 100%;
   }
 }
-</style> -->
+</style>
 </head>
 
 <body>
 
-<h2>Modal Login Form</h2>
+<h2>Login</h2>
 
-<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Enter</button>
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
 
 <div id="id01" class="modal">
   
@@ -156,11 +156,11 @@ span.psw {
     </div>
   </form>
 
-  <form th:action="@{/register}" method="get">
-    <button> register</button>
-  </form>
-</div>
 
+</div>
+<form th:action="@{/register}" method="get">
+  <button style="width:auto;"> register</button>
+</form>
 <script>
 // Get the modal
 var modal = document.getElementById('id01');
