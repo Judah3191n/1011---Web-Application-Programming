@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <center>
+    <h1 th:text="${msg}">testingPlaceholder message</h1>
+
+    <table border="5">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Credit Card</th>
+                <th>Password</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="user : ${Users}">
+                <td th:text="${user.name}"></td>
+                <td th:text="${user.email}"></td>
+                <td th:text="${user.creditCard}"></td>
+                <td th:text="${user.password}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- <p th:text="'The ClientData is' + ' '  + ${Users}">date</p> -->
+    <p th:text="'The date is' + ' '  + ${date}">date</p>
+</center>
+</body>
+
+</html>
