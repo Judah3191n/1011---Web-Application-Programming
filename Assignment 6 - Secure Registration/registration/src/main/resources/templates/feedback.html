@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <style>
+        body {
+            background-color: #333;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h2 {
+            color: #1E90FF;
+        }
+        form {
+            background-color: #444;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            margin: 0 auto;
+        }
+        form h1 {
+            margin-top: 0;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 28px;
+            color: #83b9e4;
+        }
+
+        label {
+            color: #87b3e6;
+        }
+
+        input[type="text"],
+        select,
+        textarea {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            background-color: #666;
+            color: #fff;
+            border-radius: 5px;
+        }
+        button[type="submit"] {
+            display: block;
+            margin: 0 auto;
+            background-color: #1E90FF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+        }
+        button[type="submit"]:hover {
+            background-color: #83b9e4;
+        }
+        p {
+            color: red;
+        }
+        .form-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+
+    <form th:action="@{/feedback}" th:object="${feedbackForm}" method="post">
+        <h1>Feedback</h1>
+        <label for="subject">Subject</label><br>
+        <input type="text" id="subject" th:field="*{subject}"><br>
+
+        <label for="message">Message</label><br>
+        <textarea id="message" rows="4" cols="50" th:field="*{message}"></textarea><br><br>
+
+        <label for="rating">Rating</label><br>
+        <select id="rating" th:field="*{rating}">
+            <option value=1>1 - hate subject</option>
+            <option value=2>2 - dislike subject</option>
+            <option value=3>3 - subject</option>
+            <option value=4>4 - like subject</option>
+            <option value=5>5 - love subject</option>
+        </select><br>
+
+        <p th:if="${#fields.hasErrors('subject')}" th:errors="*{subject}"></p>
+        <p th:if="${#fields.hasErrors('rating')}" th:errors="*{rating}"></p>
+        <p th:if="${#fields.hasErrors('message')}" th:errors="*{message}"></p>
+        <button type="submit">register</button>
+    </form>
+    </div>
+    
+</body>
+</html>

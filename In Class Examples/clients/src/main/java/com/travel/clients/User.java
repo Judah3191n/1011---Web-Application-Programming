@@ -3,14 +3,15 @@ package com.travel.clients;
 public class User {
     private String name;
     private String email;
-    private String creditCard;
     private String password;
+    private int age;
+    private String bio;
 
-    public User(String name, String password) {
+    public User(String name, String email, String password, int age) {
         this.name = name;
         this.email = name + "@gmail.com";
-        this.creditCard = generateCreditCard();
         this.password = password;
+        this.age = age;
     }
 
     public String getName() {
@@ -21,20 +22,8 @@ public class User {
         return email;
     }
 
-    public String getCreditCard() {
-        return creditCard;
-    }
-
     public String getPassword() {
         return password;
     }
 
-    static String generateCreditCard() {
-        String cardNumber = "";
-        for (int i = 0; i < 16; i++) {
-            cardNumber += Integer.toString((int) (Math.random() * 10));
-        }
-
-        return cardNumber;
-    }
 }

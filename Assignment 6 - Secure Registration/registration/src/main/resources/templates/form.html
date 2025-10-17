@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        body {
+            background-color: #333;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h2 {
+            color: #1E90FF;
+        }
+        form {
+            background-color: #444;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            margin: 0 auto;
+        }
+        form h1 {
+            margin-top: 0;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 28px;
+            color: #83b9e4;
+        }
+        label {
+            color: #87b3e6;
+        
+        }
+        input[type="email"],
+        input[type="text"],
+        input[type="password"],
+        input[type="number"],
+        textarea {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            background-color: #666;
+            color: #fff;
+            border-radius: 5px;
+        }
+        button[type="submit"] {
+            display: block;
+            margin: 0 auto;
+            background-color: #1E90FF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+        }
+        button[type="submit"]:hover {
+            background-color: #83b9e4;
+        }
+        p {
+            color: red;
+        }
+        .form-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="form-container">
+    <form th:action="@{/form}" th:object="${userForm}" method="post">
+        <h1>Form</h1>
+        <label for="name">Name</label><br>
+        <input type="text" id="name" th:field="*{fullName}"><br>
+
+        <label for="password">Password</label><br>
+        <input type="password" id="password" th:field="*{password}"><br>
+
+        <label for="email">Email</label><br>
+        <input type="text" id="email" th:field="*{email}"><br>
+
+        <label for="age">Age</label><br>
+        <input type="number" id="age" th:field="*{age}"><br>
+
+        <label for="bio">Bio</label><br>
+        <textarea id="bio" rows="4" cols="19" th:field="*{bio}"></textarea><br><br>
+
+        <p th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}"></p>
+        <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
+        <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+        <p th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></p>
+        <p th:if="${#fields.hasErrors('bio')}" th:errors="*{bio}"></p>
+        <button type="submit">register</button>
+    </form>
+</div>
+</body>
+
+</html>

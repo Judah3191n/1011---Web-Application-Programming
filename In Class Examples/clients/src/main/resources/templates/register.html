@@ -16,8 +16,14 @@
                 <label><b>Username</b></label>
                 <input type="text" th:placeholder="${usernameError != null} ? ${usernameError} : 'Enter Username'"  name="username" required>
                 <br>
-                <label for="psw"><b>Password</b></label>
+                <label>Password</label>
                 <input type="password" placeholder="Enter Password" name="password" required>
+                <br>
+                <label>Age</label>
+                <input type="age" placeholder="Enter Age" name="age" required>
+                <br>
+                <label>Bio</label>
+                <input type="text" placeholder="Enter Bio" name="bio" required>
                 <br>
                 <button type="submit">register</button>
             </div>

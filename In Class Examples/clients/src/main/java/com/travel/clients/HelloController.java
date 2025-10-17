@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,7 +18,10 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.fasterxml.jackson.databind.ser.impl.UnwrappingBeanSerializer;
 
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 // browser cookie: store data on browser
 // session: store data on server
 
@@ -68,16 +72,11 @@ public class HelloController {
     }
 
     @PostMapping("/register")
-    public String postMethodName(@RequestParam String username, @RequestParam String password, Model model) {
-        for (User user : users) {
-            if (user.getName().equals(username)) {
-                model.addAttribute("usernameError", "Username already taken");
-                return "register";
-            }
+    public String registerUser(@Valid @ModelAttribute userRegistrationForm form, BindingResult result) {
+        if (result.hasErrors()) {
+            return "register";
         }
-        users.add(new User(username, password));
         return "login";
-
     }
 
     // test
